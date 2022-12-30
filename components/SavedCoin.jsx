@@ -4,10 +4,13 @@ import Link from 'next/link';
 import { doc, onSnapshot, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 import { UserAuth } from '../context/AuthContext';
+import { useRouter } from 'next/router';
+import Footer from './Footer';
 
 const SavedCoin = () => {
   const [coins, setCoins] = useState([]);
   const { user } = UserAuth();
+  const router = useRouter();
 
   useEffect(() => {
     onSnapshot(doc(db, 'users', `${user?.email}`), (doc) => {
@@ -28,7 +31,7 @@ const SavedCoin = () => {
   };
 
   return (
-    <div>
+    <div className="">
       {coins?.length === 0 ? (
         <p>
           You don't have any coins saved. Please save a coin to add it to your
@@ -38,32 +41,41 @@ const SavedCoin = () => {
         <table className='w-full border-collapse text-center'>
           <thead>
             <tr className='border-b'>
-              <th className='px-4'>Rank #</th>
-              <th className='text-left'>Coin</th>
-              <th className='text-left'>Remove</th>
+              <th className='text-gray-200 font-semibold text-lg md:text-xl pb-1  '>Mkt Rank</th>
+              <th className='text-gray-200 font-semibold text-lg md:text-xl pb-1  '>Coin</th>
+              <th className='text-gray-200 font-semibold text-lg md:text-xl pb-1  text-left'>Remove</th>
             </tr>
           </thead>
           <tbody>
             {coins?.map((coin) => (
-              <tr key={coin.id} className='h-[60px] overflow-hidden'>
-                <td>{coin?.rank}</td>
+              <tr key={coin?.id} className='h-[65px] overflow-hidden'>
+                <td className="text-gray-500 lg:text-lg">{coin?.rank}</td>
                 <td>
-                  <Link to={`/coin/${coin.id}`}>
+                  <button onClick={() => {
+                                            const queryString = Object.entries(coin)
+                                            .map(([key, value]) => `${key}=${value}`)
+                                            .join('&');
+
+                                            const url = `/coins/${coin.id}?${queryString}`;
+
+                                            router.push(url);}}>
                     <div className='flex items-center'>
-                      <img src={coin?.image} className='w-8 mr-4' alt='/' />
+                      <img src={coin?.image} className='w-9 mr-4' alt='/' />
                       <div>
-                        <p className='hidden sm:table-cell'>{coin?.name}</p>
-                        <p className='text-gray-500 text-left text-sm'>
+                        <p className='hidden text-gray-300 lg:text-lg sm:table-cell'>{coin?.name}</p>
+                        <p className='text-gray-500 text-left text-sm lg:text-md'>
                           {coin?.symbol.toUpperCase()}
                         </p>
                       </div>
                     </div>
-                  </Link>
+                  </button>
+                 
                 </td>
                 <td className='pl-8'>
                   <AiOutlineClose
-                    onClick={() => deleteCoin(coin.id)}
-                    className='cursor-pointer'
+                    size={18}
+                    onClick={() => deleteCoin(coin?.id)}
+                    className='cursor-pointer text-gray-600'
                   />
                 </td>
               </tr>

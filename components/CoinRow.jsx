@@ -3,12 +3,13 @@ import React, { useState } from 'react'
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai'
 import { Sparklines, SparklinesLine } from 'react-sparklines'
 import Router, { useRouter } from 'next/router'
-import { arrayUnion, doc, updateDoc } from 'firebase/firestore'
+import { arrayUnion, doc, updateDoc, onSnapshot} from 'firebase/firestore'
 import { db } from '../firebase/firebase'
 import { UserAuth } from '../context/AuthContext'
 
 const CoinRow = ({ coin }) => {
     const [savedCoin, setSavedCoin] = useState(false)
+    const [watchListedCoins, setWatchListedCoins] = useState([]);
     const { user } = UserAuth()
     const router = useRouter()
     
@@ -67,12 +68,12 @@ const CoinRow = ({ coin }) => {
                                             <div>         
                                                 <img
                                                 className='w-6 mr-2 rounded-full'
-                                                src={coin.image}
-                                                alt={coin.id}
+                                                src={coin?.image}
+                                                alt={coin?.id}
                                                 />
             
                                             </div>
-                                            <p className='hidden sm:table-cell lg:text-lg font-semibold'>{coin.name} <span className="text-gray-500 px-1 uppercase">{coin.symbol}</span></p>
+                                            <p className='hidden sm:table-cell lg:text-lg font-semibold'>{coin.name} <span className="text-gray-500 px-1 uppercase font-light">{coin?.symbol}</span></p>
                                         </div>
                                 
                             

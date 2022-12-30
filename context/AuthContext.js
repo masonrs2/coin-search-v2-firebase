@@ -29,7 +29,7 @@ export function AuthContextProvider({children}) {
           });
     }
 
-    function signOut() {
+    function logOut() {
         return signOut(auth)
     }
 
@@ -47,7 +47,7 @@ export function AuthContextProvider({children}) {
     }, [])
 
     return (
-        <AuthContext.Provider value={{signUp, logIn, user, googleSignIn, signOut }}>
+        <AuthContext.Provider value={{signUp, logIn, user, googleSignIn, logOut }}>
             { children }
         </AuthContext.Provider>
     )

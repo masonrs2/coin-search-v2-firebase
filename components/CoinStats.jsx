@@ -33,7 +33,7 @@ const CoinStats = ({ newCoin, coin }) => {
 
         <div className="flex flex-row justify-between border-b border-gray-300 pt-2  pb-1">
         <p className="text-gray-500 font-light text-sm">Chain Homepage: </p>
-            <Link href={""}>
+            <Link href={"/"}>
               <p className="text-gray-400 font-medium text-sm cursor-pointer hover:underline">{newCoin?.links?.homepage[0]} 
               </p>
             </Link>

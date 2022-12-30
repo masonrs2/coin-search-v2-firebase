@@ -7,20 +7,25 @@ export const navItems = [
     },
     {
         id: 2,
+        content: "trending",
+        href: "#trending",
+
+    },
+    {
+        id: 3,
         content: "NFT",
         href: "/",
 
     },
     {
-        id: 3,
+        id: 4,
         content: "Defi",
-        href: "/Pages/Defi",
+        href: "/",
 
     },
     {
-        id: 4,
+        id: 5,
         content: "Exchanges",
-        href: "/Pages/Exchanges",
-
+        href: "/",
     },
 ]

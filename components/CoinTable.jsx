@@ -16,11 +16,11 @@ const CoinList = () => {
     }, [coinGeckoUrl])
 
   return (
-    <div className="text-white px-8 flex flex-col py-10">
+    <div id="cryptocurrencies" className="text-white px-8 flex flex-col py-10">
         <div className="flex flex-col">
 
             <div className="flex justify-center">
-                <form className="rounded-xl w-[600px] lg:w-96 h-10 flex bg-red-200 items-center bg-gray-800/60 px-4 hover:border hover:border-gray-400/50">
+                <form className="rounded-xl w-[600px] lg:w-96 h-10 flex items-center bg-gray-800/60 px-4 hover:border hover:border-gray-400/50">
                     <BsSearch className="text-gray-400 " size={20}   />
                     <input 
                         type="text" 

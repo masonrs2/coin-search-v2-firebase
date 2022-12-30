@@ -78,12 +78,12 @@ const CoinInfo = () => {
                   <p className="text-3xl font-bold text-gray-400">${coin?.current_price}</p>
                   <p
                     className={`pl-2 ${
-                      coin?.price_change_24 > 0
+                      coin?.price_change_24 >= 0
                         ? "text-green-600"
                         : "text-red-600"
                     }`}
                   >
-                    {coin?.price_change_24 > 0 ? (
+                    {coin?.price_change_24 >= 0 ? (
                       <RiArrowUpSFill size={37} />
                     ) : (
                       <RiArrowDownSFill size={37} />
@@ -91,7 +91,7 @@ const CoinInfo = () => {
                   </p>
                   <p
                     className={`${
-                      coin?.price_change_24 > 0
+                      coin?.price_change_24>= 0
                         ? "text-green-600"
                         : "text-red-600"
                     } font-bold ml-[-3px] text-xl`}
@@ -106,7 +106,7 @@ const CoinInfo = () => {
                     24h Price Change:{" "}
                     <span
                       className={`${
-                        coin?.price_change_24 > 0
+                        coin?.price_change_24>= 0
                           ? "text-green-600"
                           : "text-red-600"
                       }`}
@@ -116,12 +116,12 @@ const CoinInfo = () => {
                   </p>
                   <span
                     className={`pl-1 pt-2 ${
-                      coin?.price_change_24 > 0
+                      coin?.price_change_24>= 0
                         ? "text-green-600"
                         : "text-red-600"
                     }`}
                   >
-                    {coin?.price_change_24 > 0 ? (
+                    {coin?.price_change_24>= 0 ? (
                       <RiArrowUpLine className="font-bold" />
                     ) : (
                       <RiArrowDownLine className="font-bold" />
@@ -138,15 +138,15 @@ const CoinInfo = () => {
                   {newCoin?.market_data?.current_price?.btc}{" "}
       
                     <span className="uppercase">BTC</span> { " "}
-                    <span className={`${newCoin?.market_data?.price_change_percentage_24h_in_currency?.btc > 0 ? "text-green-600" : "text-red-600"}`}>
+                    <span className={`${newCoin?.market_data?.price_change_percentage_24h_in_currency?.btc>= 0 ? "text-green-600" : "text-red-600"}`}>
                     <span> {newCoin?.market_data?.price_change_percentage_24h_in_currency?.btc?.toFixed(1)}%  
                     </span>
                   
                   </span>
 
                 </p>
-                <span className={`${newCoin?.market_data?.price_change_percentage_24h_in_currency?.eth > 0 ? "text-green-600" : "text-red-600"}`}>
-                { newCoin?.market_data?.price_change_percentage_24h_in_currency?.eth > 0 
+                <span className={`${newCoin?.market_data?.price_change_percentage_24h_in_currency?.eth>= 0 ? "text-green-600" : "text-red-600"}`}>
+                { newCoin?.market_data?.price_change_percentage_24h_in_currency?.eth>= 0 
                     ?
                     <RiArrowUpLine className="font-bold" /> 
                     : 
@@ -160,15 +160,15 @@ const CoinInfo = () => {
                   {newCoin?.market_data?.current_price?.eth}{" "}
       
                     <span className="uppercase">ETH</span> { " "}
-                    <span className={`${newCoin?.market_data?.price_change_percentage_24h_in_currency?.eth > 0 ? "text-green-600" : "text-red-600"}`}>
+                    <span className={`${newCoin?.market_data?.price_change_percentage_24h_in_currency?.eth>= 0 ? "text-green-600" : "text-red-600"}`}>
                     <span> {newCoin?.market_data?.price_change_percentage_24h_in_currency?.eth?.toFixed(1)}%  
                     </span>
                   
                   </span>
 
                 </p>
-                <span className={`${newCoin?.market_data?.price_change_percentage_24h_in_currency?.eth > 0 ? "text-green-600" : "text-red-600"}`}>
-                { newCoin?.market_data?.price_change_percentage_24h_in_currency?.eth > 0 
+                <span className={`${newCoin?.market_data?.price_change_percentage_24h_in_currency?.eth>= 0 ? "text-green-600" : "text-red-600"}`}>
+                { newCoin?.market_data?.price_change_percentage_24h_in_currency?.eth>= 0 
                     ?
                     <RiArrowUpLine className="font-bold" /> 
                     : 

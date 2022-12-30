@@ -16,9 +16,9 @@ const AboutUs = () => {
             }
             <div className="w-full pt-4">
 
-                <div className="rounded-lg bg-gray-900 p-4 shadow-2xl px-12 f">
-                    <p className="text-xs text-gray-600">
-                        <span className="mb-[.4rem] underline text-red-600 font-bold text-[.75rem] flex flex-row"> <BsExclamationTriangle size={15} className="mr-[.4rem] mt-[.05rem]" />
+                <div className="rounded-lg bg-gray-800 border border-gray-600  p-4 -12 f">
+                    <p className="text-xs text-gray-400 ">
+                        <span className="mb-[.4rem] underline text-red-500 font-bold text-[.75rem] flex flex-row"> <BsExclamationTriangle size={15} className="mr-[.4rem] mt-[.05rem]" />
                         IMPORTANT DISCLAIMER:</span> All content provided herein our website, hyperlinked sites, associated applications, forums, blogs, social media accounts and other platforms (“Site”) is for your general information only, procured from third party sources. We make no warranties of any kind in relation to our content, including but not limited to accuracy and updatedness. No part of the content that we provide constitutes financial advice, legal advice or any other form of advice meant for your specific reliance for any purpose. Any use or reliance on our content is solely at your own risk and discretion. You should conduct your own research, review, analyse and verify our content before relying on them. Trading is a highly risky activity that can lead to major losses, please therefore consult your financial advisor before making any decision. No content on our Site is meant to be a solicitation or offer.</p>
                 </div>
             </div>

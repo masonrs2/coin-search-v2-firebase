@@ -16,7 +16,7 @@ const TrendingCoins = () => {
     }, [])
     
   return (
-    <div className="text-gray-400 shadow-lg shadow- xl:px-32 lg:px-16 border-t border-t-gray-800 mt-8 px-6 pt-6 pb-10 "> 
+    <div id="trending" name="trending" className="text-gray-400 shadow-lg shadow- xl:px-32 lg:px-16 border-t border-t-gray-800 mt-8 px-6 pt-6 pb-10 "> 
         <h1 className="text-gray-600 font-bold text-3xl flex py-1" >Trending Coins</h1>
         <div className="flex flex-col py-4">  
             {

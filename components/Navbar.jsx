@@ -10,18 +10,23 @@ import { UserAuth } from '../context/AuthContext'
 import router from 'next/router'
 import { useRouter } from 'next/router'
 
+
 const Navbar = () => {
   const [menu, setMenu]= useState(false)
-  const { user, signOut } = UserAuth()
+  const { user, logOut } = UserAuth()
   const router = useRouter()
 
-  const signOutHandler = async () => {
+  const logOutHandler = async () => {
     try {
-      await signOut()
-      router.push('/')
+      await logOut()
+      router.push('/accounts/Login')
     } catch (error) {
       console.log(error)
     }
+  }
+
+  function sendProps() {
+
   }
 
   return (
@@ -48,13 +53,13 @@ const Navbar = () => {
  
           { user?.email ? (
             <div className="mx-2 flex flex-row items-center">
-              <Link href="/accounts/Signup" className='p-4 hidden lg:flex'>
+              <Link href="/accounts/Account" className='p-4 hidden lg:flex'>
                 <button className="hidden lg:flex px-1 xl:px-4 text-purple-300 gap-2 items-center justify-center text-lg md:text-xl rounded-xl border border-purple-300 w-40 h-[48px] mr-2 ">
                     <BiUser />
                     Account
                 </button>
               </Link>
-              <button className="hidden lg:flex text-gray-500" onClick={signOutHandler}>Sign Out</button>
+              <button className="hidden lg:flex text-gray-500" onClick={logOutHandler}>Sign Out</button>
             </div>
           ) :
           (
@@ -95,9 +100,9 @@ const Navbar = () => {
               <div className="w-full">
                 {
                   user?.email ? (
-                    <Link href="/accounts/Signup"> 
-                      <button className="w-full border text-purple-200 font-light text-lg border-purple-400 rounded-2xl py-2" onClick={signOutHandler}>Access Account</button>
-                    </Link>
+                    
+                      <button onClick={() => router.push('/accounts/Account')} className="w-full border text-purple-200 font-light text-lg border-purple-400 rounded-2xl py-2" >Access Account</button>
+                    
                   )
                   : (
                     <button className="w-full border text-purple-200 font-light text-lg border-purple-400 rounded-2xl py-2">Log In To Account</button>

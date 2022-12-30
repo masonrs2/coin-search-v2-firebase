@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import dollar from '../assets/dollar.png'
+import { GiNetworkBars, GiCoins } from 'react-icons/gi'
+import { FaBitcoin } from 'react-icons/fa'
 import axios from 'axios'
 
 const GeneralStats = () => {
@@ -34,7 +36,7 @@ const GeneralStats = () => {
 
         </div>
         <div className="grid lg:grid-cols-3 gap-6 xl:gap-8 2xl:gap-10 mt-12 px-10 mr-1 " >
-              <div className="flex flex-col px-8 bg-gray-500 bg-opacity-50 rounded-xl 2xl:w-[480px] 3xl:w-[500px] shadow-xl shadow-gray-800 ">
+              <div className="flex flex-col px-8 bg-gray-500 bg-opacity-50 rounded-xl 2xl:w-[480px] 3xl:w-[500px] shadow-xl shadow-gray-800 border border-purple-400 ">
                   <Image src={dollar} className="text-green-300 text-sm pt-5" alt="dollar" />
                   <p className="flex py-4 text-gray-400 font-medium 2xl:text-lg" >Market Capitalization</p>
                   <span className="text-4xl lg:text-4xl font-semibold text-gray-300 flex 2xl:text-5xl">${(stats?.data?.total_market_cap?.usd?.toLocaleString())?.split('.')[0]}</span>
@@ -45,8 +47,8 @@ const GeneralStats = () => {
                   </div>
               </div>
             
-              <div className="flex flex-col px-8  bg-gray-500 bg-opacity-50 rounded-xl 2xl:w-[480px] 3xl:w-[500px] shadow-xl shadow-gray-800 ">
-                  <Image src={dollar} className="text-green-300 text-sm pt-5" alt="dollar" />
+              <div className="flex flex-col px-8  bg-gray-500 bg-opacity-50 rounded-xl 2xl:w-[480px] 3xl:w-[500px] shadow-xl shadow-gray-800 border border-purple-400  ">
+                  <GiNetworkBars size={50} className="text-gray-200 text-sm mt-5 ml-1" alt="dollar" />
                   <p className="flex py-4 text-gray-400 font-medium 2xl:text-lg" >24h Trading Volume</p>
                   <span className="text-4xl lg:text-4xl font-semibold text-gray-300 flex 2xl:text-5xl">${( stats?.data?.total_volume.usd?.toLocaleString())?.split('.')[0]}</span>
                   <div className={`${stats?.data?.market_cap_percentage.matic > 0 ? "bg-green-400/80" : "bg-red-300/80"} rounded-xl w-[68px] mt-5 mb-8 h-8 items-center flex justify-center`}>
@@ -57,16 +59,16 @@ const GeneralStats = () => {
               </div>
               
             
-                <div className="flex flex-row pb-20 justify-between px-8 bg-gray-500 bg-opacity-50 rounded-xl 2xl:w-[480px] 3xl:w-[500px] shadow-xl shadow-gray-800 ">
+                <div className="flex flex-row pb-20 justify-between px-8 bg-gray-500 bg-opacity-50 rounded-xl 2xl:w-[480px] 3xl:w-[500px] shadow-xl shadow-gray-800 border border-purple-400  ">
 
                   <div className="flex flex-col ">
-                    <Image src={dollar} className="text-green-300 text-sm pt-5" alt="dollar" />
+                    <GiCoins size={50} className="text-purple-300 text-sm mt-8" alt="dollar" />
                     <p className="flex py-4 text-gray-400 font-medium 2xl:text-lg" >Total Coins</p>
                     <span className="text-4xl lg:text-4xl font-semibold text-gray-300 flex 2xl:text-5xl">{stats?.data?.active_cryptocurrencies}</span>
                   </div>
 
                   <div className="flex flex-col">
-                    <Image src={dollar} className="text-green-300 text-sm pt-5 ml-20" alt="dollar" />
+                    <FaBitcoin size={65} className="text-orange-400 text-sm mt-[17px] ml-24 relative top-1" alt="dollar" />
                     <p className="flex py-4 text-gray-400 font-medium 2xl:text-lg" >BTC Cap Dominance</p>
                     <span className="text-4xl lg:text-4xl font-semibold text-gray-300 flex 2xl:text-5xl">{stats?.data?.market_cap_percentage?.btc?.toLocaleString()}%</span>
                   </div>
