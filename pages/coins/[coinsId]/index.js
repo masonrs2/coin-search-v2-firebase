@@ -185,7 +185,7 @@ const CoinInfo = () => {
             </div>
 
             <div className="pt-8">
-              <h1 className="font-bold text-2xl xl:text-3xl xl:pb-4 text-center">7 Day Line Chart of {coin?.name}</h1>
+              <h1 className="font-bold text-2xl xl:text-3xl xl:py-6 xl:pb-10 text-center">7 Day Line Chart of {coin?.name}</h1>
               <Sparklines className="" data={coin?.sparkline_in_7d?.price}>
                           {
                             coin?.sparkline_in_7d?.price[0] > coin?.sparkline_in_7d?.price[coin?.sparkline_in_7d?.price?.length-1]
