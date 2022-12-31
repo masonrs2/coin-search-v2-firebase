@@ -105,7 +105,7 @@ const Navbar = () => {
                     
                   )
                   : (
-                    <button className="w-full border text-purple-200 font-light text-lg border-purple-400 rounded-2xl py-2">Log In To Account</button>
+                    <button onClick={() => router.push('/accounts/Login')} className="w-full border text-purple-200 font-light text-lg border-purple-400 rounded-2xl py-2">Log In To Account</button>
                   )
                 }
               </div>

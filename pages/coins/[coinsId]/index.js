@@ -25,7 +25,9 @@ const CoinInfo = () => {
     const data = window.localStorage.getItem('MY_APP_STATE');
     if ( data !== null ) setCoin(JSON.parse(data));
 
-    const data2 = window.localStorage.getItem('MY_APP_STATE');
+    
+
+    const data2 = window.localStorage.getItem('APP_STATE_TWO');
     if ( data2 !== null ) setnewCoin(JSON.parse(data2));
   }, []);
 
@@ -33,7 +35,7 @@ const CoinInfo = () => {
     if (!url ) {
       window.location.reload();
       return;
-    }
+    }  
 
     const fetchCoin = async () => {
       const id = router.query.id;
@@ -59,7 +61,7 @@ const CoinInfo = () => {
     window.localStorage.setItem('APP_STATE_TWO', JSON.stringify(newCoin));
     fetchCoin();
     fetchNewCoin();
-  }, [router.isReady, router.query.id, url, coin, newCoin]);
+  }, [router.isReady, router.query.id, url]);
 
   return (
     <div className="w-full h-screen text-gray-600 bg-black px-6">
