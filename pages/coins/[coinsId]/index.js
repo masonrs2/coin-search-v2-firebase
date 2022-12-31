@@ -47,9 +47,11 @@ const CoinInfo = () => {
       setnewCoin(newCoin)
       
     }
+    window.localStorage.setItem('MY_APP_STATE', JSON.stringify(coin));
+    window.localStorage.setItem('MY_APP_STATE', JSON.stringify(newCoin));
     fetchCoin();
     fetchNewCoin();
-  }, [router.isReady, id, router.query.id, url]);
+  }, [router.isReady, router.query.id, url, coin, newCoin]);
 
   return (
     <div className="w-full h-screen text-gray-600 bg-black px-6">
