@@ -22,6 +22,14 @@ const CoinInfo = () => {
   const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${id}&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C%2024h%2C%207d`;
 
   useEffect(() => {
+    const data = window.localStorage.getItem('MY_APP_STATE');
+    if ( data !== null ) setCoin(JSON.parse(data));
+
+    const data2 = window.localStorage.getItem('MY_APP_STATE');
+    if ( data2 !== null ) setnewCoin(JSON.parse(data2));
+  }, []);
+
+  useEffect(() => {
     if (!url ) {
       window.location.reload();
       return;
@@ -48,7 +56,7 @@ const CoinInfo = () => {
       
     }
     window.localStorage.setItem('MY_APP_STATE', JSON.stringify(coin));
-    window.localStorage.setItem('MY_APP_STATE', JSON.stringify(newCoin));
+    window.localStorage.setItem('APP_STATE_TWO', JSON.stringify(newCoin));
     fetchCoin();
     fetchNewCoin();
   }, [router.isReady, router.query.id, url, coin, newCoin]);
